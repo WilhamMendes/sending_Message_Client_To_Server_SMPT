@@ -1,3 +1,4 @@
+from email import message
 from socket import *
 
 
@@ -38,46 +39,66 @@ if recv1[:3] != '250':
 
 # Send MAIL FROM command and print server response.
 # Fill in start
-mail_data = 
+mail_data = ("Mail From: <starwilliam7@hotmail.com>\r\n")
+clientSocket.send(mail_data.encode())
 
+recv_2 = clientSocket.recv(1024).decode()
+print(recv_2)
 # Fill in end
 
 
 
 # Send RCPT TO command and print server response. 
 # Fill in start
+rctp_Data = ("RCPT TO: <mendeswil710@gmail.com>\r\n".encode())
+clientSocket.send(rctp_Data)
 
-
+recv_3 = clientSocket.recv(1024).decode()
+print(recv_3)
 # Fill in end
 
 
 
 # Send DATA command and print server response. 
 # Fill in start
+data_command = "DATA\r\n".encode()
+clientSocket.send(data_command)
 
-
+recv_4 = clientSocket.recv(1024).decode()
+print(recv_4)
 # Fill in end
 
 
 
 # Send message data.
 # Fill in start
+message_data = ("Subject: {}\r\n" .format(msg.encode()))
+clientSocket.send(message_data)
 
-
+recv_5 = clientSocket.recv(1024).decode()
+print(recv_5)
 # Fill in end
 
 
 
 # Message ends with a single period.
 # Fill in start
+message_ends = ("{}", endmsg.encode)
+clientSocket.send(message_ends)
 
-
+recv_6 = clientSocket.recv(1024).decode()
+print(recv_6)
 # Fill in end
 
 
 # Send QUIT command and get server response.
 # Fill in start
+quit_command = "QUIT\r\n".encode()
+clientSocket.send(quit_command)
 
+recv_7 = clientSocket.recv(1024).decode()
+print(recv_7)
 
+clientSocket.close()
 # Fill in end
 
