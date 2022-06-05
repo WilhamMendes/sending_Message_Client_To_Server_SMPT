@@ -1,4 +1,5 @@
 from socket import *
+
 serverName = 'localhost'
 serverPort = 2000
 
