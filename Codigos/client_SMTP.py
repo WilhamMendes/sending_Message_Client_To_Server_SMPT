@@ -28,7 +28,7 @@ if recv[:3] != '220':
 
 
 # Send HELO command and print server response.
-heloCommand = 'Helo Alice!\r\n'
+heloCommand = 'HELO Alice\r\n'
 clientSocket.send(heloCommand.encode())
 recv1 = clientSocket.recv(1024).decode()
 print(recv1)
@@ -72,7 +72,7 @@ print(recv_4)
 
 # Send message data.
 # Fill in start
-message_data = "Subject: {}\r\n" .format(msg).encode()
+message_data = ("Subject: {}\r\n" .format(msg.encode()))
 clientSocket.send(message_data)
 
 recv_5 = clientSocket.recv(1024).decode()
@@ -83,7 +83,7 @@ print(recv_5)
 
 # Message ends with a single period.
 # Fill in start
-message_ends = "{}" .format(endmsg).encode()
+message_ends = ("{}", endmsg.encode)
 clientSocket.send(message_ends)
 
 recv_6 = clientSocket.recv(1024).decode()
@@ -101,3 +101,4 @@ print(recv_7)
 
 clientSocket.close()
 # Fill in end
+
